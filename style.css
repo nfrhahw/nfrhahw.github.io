@@ -1,0 +1,386 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 26 Nov 2023, 3:13:53 pm
+    Author     : user
+*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Radley', carlito;
+    box-sizing: border-box;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: #F4F1E8; /*warna background*/
+    color: #000001; /*tulisan introduction*/
+}
+#mainPage{
+    width: 100%;
+    height: 100vh;
+    background-image: url(wall.png);
+    background-size: cover;
+    background-position: center;        
+}
+.container{
+    padding: 10px 10%;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Adjust the z-index as needed */
+  background-color: #f4f1e8; /* Add a background color to the header */
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 100px
+}
+nav ul li{
+    display: inline-block; /*horizontalmenu*/
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color:#977668;
+    text-decoration: none;  /*tulisan menu putih*/
+    font-size: 18px;
+    position: relative;
+}
+nav ul li a::after{
+    content: ''; /*line bwah tlisan*/
+    width: 0%;
+    height: 3px;
+    background: #977668;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s; /*bila tekan nmpak line merah*/
+}
+nav ul li a:hover::after{
+    width: 100%;   
+}
+.intro{
+    margin-top: 20%;
+    font-size: 50px; 
+}
+.intro h1{
+    font-size: 80px;
+    margin-top: 20px;
+    color: #977668;
+}
+/*about*/
+#aboutme{
+    padding: 80px 0;
+}
+.row{
+    display: flex; /*contents side by side*/
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 0px;   
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+.title{
+    font-size: 60px; /*about me*/
+    font-weight: 600;
+    color: black;
+}
+.my-name {
+    color: #977668;
+}
+.name {
+    color: black;
+}
+.description{
+    color: #977668;
+    font-size: 17px;
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px; /*top leftright bottom*/
+    color: black;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background:  #977668;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-contents ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+    color: black;/*color star*/
+    flex-basis: calc(33.33% - 20px);x-basis: calc(33.33% - 20px); 
+    font-size: 15px;
+}
+.tab-contents ul li span{
+    color: #977668;
+    font-size: 20px;
+
+}
+.tab-contents{
+    display: none;
+    
+}
+.tab-contents.active-tab{
+    display: block;   
+}
+
+/*-----------------------------project*/
+#project{
+    padding: 80px 0;
+}
+.projectList{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.projects{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.projects img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s; /*bila tekan ia akan bagi effect kedepan untuk gambar project*/ 
+    
+}
+.projectName{
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(rgba(0,0,0,0.6),#F4F1E8);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s; /*transition description naik ke atas*/
+}
+.projectName h1{
+    font-size: 100px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.projectName a{
+    margin-top: 20px;
+    color: #977668;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #F4F1E8; /*colour white*/
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.projects:hover img{
+    transform: scale(1.1);
+}
+.projects:hover .projectName{
+    height: 100%
+        
+}
+.btn{               /* button see more */
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #977668;
+    padding: 14px 50px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #977668;    /*color tulisan */
+    transition: background 0.5s; /*transition untuk button see more*/
+}
+.btn:hover{
+    background: #977668;
+    
+}
+/*----------------CONTACT------------*/
+#contact{
+    padding: 80px 0;
+}
+
+.contact-left{
+    flex-basis: 35%; 
+}
+
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-left p{
+    margin-top: 30px;
+    display: flex; /* Add this to make child elements flex items */
+    align-items: center; 
+}
+.contact-left p i{
+    color: #977668;
+    margin-right: 15px;
+    font-size: 25px;
+}
+.social-icons{
+    margin-top: 30px;
+}
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color:#977668;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+.social-icons a:hover{
+    color: black;
+    transform: translateY(-5px);
+}
+.contact-info {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.btn.btn2{
+    display: inline-block;
+    background: #F4F1E8;
+}
+.contact-right form{
+    width: 100%;
+    
+}
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #977668;
+    padding: 15px;
+    margin: 15px 0;
+    color: black; /*tulisan hitam dalam form*/
+    font-size: 18px;
+    border-radius: 6px;
+}
+.form btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #977668;
+    font-weight: 300; 
+    margin-top: 100px;
+}
+.copyright i{
+    color: #f4f1e8;
+}
+/*-------css for phone---------*/
+nav .fas{
+    display: none;
+}
+@media only screen and (max-width:600px){
+    #mainPage{
+        background-image: url(phonewall.png)
+    }
+    .intro{
+        margin-top: 100%;
+        font-size: 16px;
+    }
+    .intro h1{
+        font-size: 30px;
+    }
+    nav .fas{
+        display: block;
+        font-size: 20px;
+    }
+    nav ul{
+        background: white;
+        position: fixed;
+        top: 0;
+        right: -150px;
+        width: 150px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+            
+    }
+    nav ul li{
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fas{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+         
+    }
+    .title{
+        font-size: 40px;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-2{
+        font-size: 14px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 10px
+            
+    }
+}
